@@ -23,21 +23,21 @@ BNF lexica del lenguaje mini
 
 BNF sintactica del lenguaje mini
 
-<lenguajeMini> ::= programa sentencias fin-programa
+<lenguajeMini> ::= programa <sentencias> fin-programa
 
-<sentencias> ::= sentencias unaSentencia | unaSentencia | e
+<sentencias> ::= <sentencias><unaSentencia> | <unaSentencia> | e
 
-<unaSentencia> ::= identificador <- expresion | entero identificador | leer(listaIdentificadores) | escribir(listaExpresiones)
+<unaSentencia> ::= <identificador> <- <expresion> | entero <identificador> | leer(<listaIdentificadores>) | escribir(<listaExpresiones>)
 
-<listaIdentificadores> ::= listaIdentificadores,identificador | identificador
+<listaIdentificadores> ::= <listaIdentificadores>,<identificador> | <identificador>
 
-<listaExpresiones> ::= listaExpresiones,expresion | expresion
+<listaExpresiones> ::= <listaExpresiones>,<expresion> | <expresion>
 
-<expresion> ::= esxpresion + termino | expresion - termino | termino
+<expresion> ::= <expresion> + <termino> | <expresion> - <termino> | <termino>
 
-<termino> ::= termino * factor | termino / factor | termino % factor | termino
+<termino> ::= <termino> * <factor> | <termino> / <factor> | <termino> % <factor> | <termino>
 
-<factor> ::= dato | - dato
+<factor> ::= <dato> | - <dato>
 
-<dato> ::= constante | identificador | (expresion)
+<dato> ::= <constante> | <identificador> | (<expresion>)
 
