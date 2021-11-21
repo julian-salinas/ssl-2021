@@ -1,5 +1,11 @@
 ## Como compilar y ejecutar el tp
 
+# Usando makefile
+```
+make
+```
+
+# Manualmente
 1. Compilar el Scanner (`scanner.l`)
 ```bash
 flex scanner.l
