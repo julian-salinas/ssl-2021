@@ -1,72 +1,72 @@
+/*
+Grupo 4
+Integrantes: Copa, Rocío Belén; Iglesias, Tobías; Salinas, Julián
+*/
+
 #include <stdio.h>
+#include <stdlib.h>
 #include "tokens.h"
+#include "scanner.h"
 
-//hago funcion get_token() para que me devuelva el token
-int get_token(void)
-{
-    int token;
-    token = yylex();
-    return token;
-}
-
-
-int main(void){
-    int token;
-
-// FDT,
-//     ENTERO, LEER, ESCRIBIR, PROGRAMA, FINPROGRAMA,  // Palabras reservadas
-//     IDENTIFICADOR,
-//     CONSTANTE,
-//     ASIGNACION,
-
-
-
+int main(int argc, const char *argv[]){
+    token token_leido;
 
     do{
-        token = get_token();
+        token_leido = yylex();  // El scanner de Flex devuelve el token
+        char resultado[100];  // Acá se va a copiar lo que luego se escribe en el archivo de salida
 
-        switch(token){
+        switch(token_leido){
             case FDT:
-                printf("FDT\n");
+                strcpy(resultado, "Token: Fin de Texto");
                 break;
-            case ENTERO:
-                printf("ENTERO\n");
-                break;
-            case LEER:
-                printf("LEER\n");
-                break;
-            case ESCRIBIR:
-                printf("ESCRIBIR\n");
-                break;
-            case PROGRAMA:
-                printf("PROGRAMA\n");
-                break;
-            case FINPROGRAMA:
-                printf("FINPROGRAMA\n");
-                break;
+            
             case IDENTIFICADOR:
-                printf("IDENTIFICADOR\n");
+                strcat(strcpy(resultado, "Token: Identificador \t Lexema: "), yytext);
                 break;
+            
             case CONSTANTE:
-                printf("CONSTANTE\n");
+                strcat(strcpy(resultado, "Token: Constante \t Lexema: "), yytext);
                 break;  
+            
             case ASIGNACION:    
-                printf("ASIGNACION\n");
+                strcat(strcpy(resultado, "Token: Asignación \t Lexema: "), yytext);
                 break;
+            
+            case CARACTER_PUNTUACION:
+                strcat(strcpy(resultado, "Token: Caracter de Puntuación: \t Lexema: "), yytext);
+                break;
+
+            // Acá todos los case de palabra reservada
+            case ENTERO:
+                strcpy(resultado, "Token: Entero");
+                break;
+
+            case LEER:
+                strcpy(resultado, "Token: Leer");
+                break;
+
+            case ESCRIBIR:
+                strcpy(resultado, "Token: Escribir");
+                break;
+
+            case PROGRAMA:
+                strcpy(resultado, "Token: Programa");
+                break;
+
+            case FIN_PROGRAMA:
+                strcpy(resultado, "Token: Fin Programa");
+                break;
+
+            // El scanner falló
             default:
-                printf("Error %d\n", token);
+                strcat(strcpy(resultado, "ERROR, El scanner implosionó al ver el caracter"), yytext);
                 break;
         }
 
+        // Escribir el archivo de salida
+        puts(resultado);
 
-
-
-    } while(token != FDT);
-
-
-
-
-
+    } while(token_leido != FDT);
 
     return 0;
 }

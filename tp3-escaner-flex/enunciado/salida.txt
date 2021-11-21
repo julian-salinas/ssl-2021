@@ -1,0 +1,52 @@
+Token: Programa
+Token: Identificador 	 Lexema: prueba
+Token: Entero
+Token: Identificador 	 Lexema: var1
+Token: Caracter de Puntuación: 	 Lexema: ;
+Token: Entero
+Token: Identificador 	 Lexema: var2
+Token: Caracter de Puntuación: 	 Lexema: ;
+Token: Leer
+Token: Caracter de Puntuación: 	 Lexema: (
+Token: Identificador 	 Lexema: var1
+Token: Caracter de Puntuación: 	 Lexema: ,
+Token: Identificador 	 Lexema: var2
+Token: Caracter de Puntuación: 	 Lexema: )
+Token: Caracter de Puntuación: 	 Lexema: ;
+Caracter no valido: $
+Caracter no valido: @
+Caracter no valido: #
+Token: Entero
+Token: Identificador 	 Lexema: total
+Token: Caracter de Puntuación: 	 Lexema: ;
+Token: Identificador 	 Lexema: total
+Token: Asignación 	 Lexema: <<
+Token: Identificador 	 Lexema: var1
+Token: Caracter de Puntuación: 	 Lexema: +
+Token: Constante 	 Lexema: 3
+Token: Caracter de Puntuación: 	 Lexema: *
+Token: Caracter de Puntuación: 	 Lexema: -
+Token: Identificador 	 Lexema: var2
+Token: Caracter de Puntuación: 	 Lexema: ;
+Token: Identificador 	 Lexema: var2
+Token: Asignación 	 Lexema: <<
+Token: Constante 	 Lexema: 2
+Token: Caracter de Puntuación: 	 Lexema: *
+Token: Caracter de Puntuación: 	 Lexema: (
+Token: Constante 	 Lexema: 514
+Token: Caracter de Puntuación: 	 Lexema: +
+Error léxico: constante inválida: 4z2m
+Token: Caracter de Puntuación: 	 Lexema: )
+Token: Caracter de Puntuación: 	 Lexema: ;
+Token: Escribir
+Token: Caracter de Puntuación: 	 Lexema: (
+Token: Identificador 	 Lexema: total
+Caracter no valido: &
+Error léxico: constante inválida: 3a
+Caracter no valido: @
+Token: Caracter de Puntuación: 	 Lexema: %
+Token: Constante 	 Lexema: 2
+Token: Caracter de Puntuación: 	 Lexema: )
+Token: Caracter de Puntuación: 	 Lexema: ;
+Token: Fin Programa
+Token: Fin de Texto

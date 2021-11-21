@@ -1,7 +1,13 @@
+#ifndef SCANNERH
+#define SCANNERH
+
 typedef enum TOKEN {
     FDT,
-    ENTERO, LEER, ESCRIBIR, PROGRAMA, FINPROGRAMA,  // Palabras reservadas
+    ENTERO, LEER, ESCRIBIR, PROGRAMA, FIN_PROGRAMA,
     IDENTIFICADOR,
     CONSTANTE,
     ASIGNACION,
-};
+    CARACTER_PUNTUACION
+} token;
+
+#endif
