@@ -7,5 +7,5 @@ flex:
 	flex scanner.l
 
 clean:
-	-rm scanner.c 
-	-rm scanner.h
+	rm scanner.c 
+	rm scanner.h

@@ -2,51 +2,51 @@ Token: Programa
 Token: Identificador 	 Lexema: prueba
 Token: Entero
 Token: Identificador 	 Lexema: var1
-Token: Caracter de Puntuación: 	 Lexema: ;
+Token: Punto y Coma
 Token: Entero
 Token: Identificador 	 Lexema: var2
-Token: Caracter de Puntuación: 	 Lexema: ;
+Token: Punto y Coma
 Token: Leer
-Token: Caracter de Puntuación: 	 Lexema: (
+Token: Paréntesis Izquierdo
 Token: Identificador 	 Lexema: var1
-Token: Caracter de Puntuación: 	 Lexema: ,
+Token: Coma
 Token: Identificador 	 Lexema: var2
-Token: Caracter de Puntuación: 	 Lexema: )
-Token: Caracter de Puntuación: 	 Lexema: ;
+Token: Paréntesis Derecho
+Token: Punto y Coma
 Caracter no valido: $
 Caracter no valido: @
 Caracter no valido: #
 Token: Entero
 Token: Identificador 	 Lexema: total
-Token: Caracter de Puntuación: 	 Lexema: ;
+Token: Punto y Coma
 Token: Identificador 	 Lexema: total
-Token: Asignación 	 Lexema: <<
+Token: Asignación
 Token: Identificador 	 Lexema: var1
-Token: Caracter de Puntuación: 	 Lexema: +
+Token: Operador Suma
 Token: Constante 	 Lexema: 3
-Token: Caracter de Puntuación: 	 Lexema: *
-Token: Caracter de Puntuación: 	 Lexema: -
+Token: Operador Multiplicación
+Token: Operador Resta
 Token: Identificador 	 Lexema: var2
-Token: Caracter de Puntuación: 	 Lexema: ;
+Token: Punto y Coma
 Token: Identificador 	 Lexema: var2
-Token: Asignación 	 Lexema: <<
+Token: Asignación
 Token: Constante 	 Lexema: 2
-Token: Caracter de Puntuación: 	 Lexema: *
-Token: Caracter de Puntuación: 	 Lexema: (
+Token: Operador Multiplicación
+Token: Paréntesis Izquierdo
 Token: Constante 	 Lexema: 514
-Token: Caracter de Puntuación: 	 Lexema: +
+Token: Operador Suma
 Error léxico: constante inválida: 4z2m
-Token: Caracter de Puntuación: 	 Lexema: )
-Token: Caracter de Puntuación: 	 Lexema: ;
+Token: Paréntesis Derecho
+Token: Punto y Coma
 Token: Escribir
-Token: Caracter de Puntuación: 	 Lexema: (
+Token: Paréntesis Izquierdo
 Token: Identificador 	 Lexema: total
 Caracter no valido: &
 Error léxico: constante inválida: 3a
 Caracter no valido: @
-Token: Caracter de Puntuación: 	 Lexema: %
+ERROR, El scanner implosionó al ver el caracter%
 Token: Constante 	 Lexema: 2
-Token: Caracter de Puntuación: 	 Lexema: )
-Token: Caracter de Puntuación: 	 Lexema: ;
+Token: Paréntesis Derecho
+Token: Punto y Coma
 Token: Fin Programa
 Token: Fin de Texto

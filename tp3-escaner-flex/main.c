@@ -28,15 +28,45 @@ int main(int argc, const char *argv[]){
                 strcat(strcpy(resultado, "Token: Constante \t Lexema: "), yytext);
                 break;  
             
+            /* Caracteres de puntuacion */
             case ASIGNACION:    
-                strcat(strcpy(resultado, "Token: Asignación \t Lexema: "), yytext);
+                strcpy(resultado, "Token: Asignación");
                 break;
             
-            case CARACTER_PUNTUACION:
-                strcat(strcpy(resultado, "Token: Caracter de Puntuación: \t Lexema: "), yytext);
+            case OP_SUMA:
+                strcpy(resultado, "Token: Operador Suma");
                 break;
 
-            // Acá todos los case de palabra reservada
+            case OP_RESTA:
+                strcpy(resultado, "Token: Operador Resta");
+                break;
+
+            case OP_MULTIPLICACION:
+                strcpy(resultado, "Token: Operador Multiplicación");
+                break;
+
+            case OP_DIVISION:
+                strcpy(resultado, "Token: Operador División");
+                break;
+
+            case COMA:
+                strcpy(resultado, "Token: Coma");
+                break;
+
+            case PAREN_IZQ:
+                strcpy(resultado, "Token: Paréntesis Izquierdo");
+                break;
+
+            case PAREN_DER:
+                strcpy(resultado, "Token: Paréntesis Derecho");
+                break;
+
+            case PUNTO_COMA:
+                strcpy(resultado, "Token: Punto y Coma");
+                break; 
+            
+            /* Palabra Reservada */
+
             case ENTERO:
                 strcpy(resultado, "Token: Entero");
                 break;

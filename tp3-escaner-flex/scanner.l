@@ -23,7 +23,15 @@ fin-programa                                                  return FIN_PROGRAM
 {identificador}                                               return IDENTIFICADOR;
 {constante_entera}                                            return CONSTANTE;
 "<<"                                                          return ASIGNACION;
-";"|"("|")"|"+"|"-"|"*"|"%"|"/"|","                           return CARACTER_PUNTUACION;
+"+"                                                           return OP_SUMA;
+"-"                                                           return OP_RESTA;
+"*"                                                           return OP_MULTIPLICACION;                                
+"/"                                                           return OP_DIVISION;
+"%"                                                           return OP_PORCENTAJE;
+","                                                           return COMA;
+"("                                                           return PAREN_IZQ;
+")"                                                           return PAREN_DER;
+";"                                                           return PUNTO_COMA; 
 {espacio}+                                                    ;
 "//"(.)*                                                      ;
 {constante_entera}({letra}|{digito_decimal})*                 printf("Error léxico: constante inválida: %s\n", yytext);
