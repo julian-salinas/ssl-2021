@@ -12,7 +12,9 @@ letra               [a-zA-Z]
 espacio             [[:space:]]
 identificador       {letra}({letra}|{digito_decimal})* 
 constante_entera    {digito_decimal}+
-cualquier_valor     . 
+cualquier_caracter     . 
+
+ /* otros representa caracteres no alfanuméricos, excluyendo espacios y operadores especificados */
 otros               [[:^alnum:]]{-}[[:space:]]{-}[-+*/();,>%]
 
 %%
@@ -34,9 +36,9 @@ fin-programa                         return FIN_PROGRAMA;
 ")"                                  return ')';
 ";"                                  return ';'; 
 {espacio}+                           ;
-"//".*                               ;
+"//"{cualquier_caracter}*            ;
 
-
+ /* Errores léxicos*/
 {identificador}{otros}({letra}|{digito_decimal}|{otros})*   printf("Error léxico: identificador inválido: %s\n", yytext);
 {constante_entera}({letra}|{digito_decimal})*               printf("Error léxico: constante inválida: %s\n", yytext);
 {otros}+                                                    printf("Cadena inválida: %s\n", yytext);
