@@ -1,52 +1,47 @@
-Token: Programa
+Token: programa
 Token: Identificador 	 Lexema: prueba
-Token: Entero
+Token: entero
 Token: Identificador 	 Lexema: var1
-Token: Punto y Coma
-Token: Entero
+Token: ';'
+Token: entero
 Token: Identificador 	 Lexema: var2
-Token: Punto y Coma
-Token: Leer
-Token: Paréntesis Izquierdo
+Token: ';'
+Token: leer
+Token: '('
 Token: Identificador 	 Lexema: var1
-Token: Coma
+Token: ','
 Token: Identificador 	 Lexema: var2
-Token: Paréntesis Derecho
-Token: Punto y Coma
-Caracter no valido: $
-Caracter no valido: @
-Caracter no valido: #
-Token: Entero
+Token: ')'
+Token: ';'
+Cadena inválida: $@#
+Token: entero
 Token: Identificador 	 Lexema: total
-Token: Punto y Coma
+Token: ';'
 Token: Identificador 	 Lexema: total
 Token: Asignación
 Token: Identificador 	 Lexema: var1
-Token: Operador Suma
-Token: Constante 	 Lexema: 3
-Token: Operador Multiplicación
-Token: Operador Resta
+Token: '+'
+Token: Constante 		 Lexema: 3
+Token: '*'
+Token: '-
 Token: Identificador 	 Lexema: var2
-Token: Punto y Coma
+Token: ';'
 Token: Identificador 	 Lexema: var2
 Token: Asignación
-Token: Constante 	 Lexema: 2
-Token: Operador Multiplicación
-Token: Paréntesis Izquierdo
-Token: Constante 	 Lexema: 514
-Token: Operador Suma
+Token: Constante 		 Lexema: 2
+Token: '*'
+Token: '('
+Token: Constante 		 Lexema: 514
+Token: '+'
 Error léxico: constante inválida: 4z2m
-Token: Paréntesis Derecho
-Token: Punto y Coma
-Token: Escribir
-Token: Paréntesis Izquierdo
-Token: Identificador 	 Lexema: total
-Caracter no valido: &
-Error léxico: constante inválida: 3a
-Caracter no valido: @
-ERROR, El scanner implosionó al ver el caracter%
-Token: Constante 	 Lexema: 2
-Token: Paréntesis Derecho
-Token: Punto y Coma
-Token: Fin Programa
+Token: ')'
+Token: ';'
+Token: escribir
+Token: '('
+Error léxico: identificador inválido: total&3a@
+Token: '%'
+Token: Constante 		 Lexema: 2
+Token: ')'
+Token: ';'
+Token: fin-programa
 Token: Fin de Texto

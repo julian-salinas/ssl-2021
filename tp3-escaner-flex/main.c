@@ -25,7 +25,7 @@ int main(int argc, const char *argv[]){
                 break;
             
             case CONSTANTE:
-                strcat(strcpy(resultado, "Token: Constante \t Lexema: "), yytext);
+                strcat(strcpy(resultado, "Token: Constante \t\t Lexema: "), yytext);
                 break;  
             
             /* Caracteres de puntuacion */
@@ -33,58 +33,62 @@ int main(int argc, const char *argv[]){
                 strcpy(resultado, "Token: Asignación");
                 break;
             
-            case OP_SUMA:
-                strcpy(resultado, "Token: Operador Suma");
+            case '+':
+                strcpy(resultado, "Token: '+'");
                 break;
 
-            case OP_RESTA:
-                strcpy(resultado, "Token: Operador Resta");
+            case '-':
+                strcpy(resultado, "Token: '-");
                 break;
 
-            case OP_MULTIPLICACION:
-                strcpy(resultado, "Token: Operador Multiplicación");
+            case '*':
+                strcpy(resultado, "Token: '*'");
                 break;
 
-            case OP_DIVISION:
-                strcpy(resultado, "Token: Operador División");
+            case '/':
+                strcpy(resultado, "Token: '/'");
                 break;
 
-            case COMA:
-                strcpy(resultado, "Token: Coma");
+            case '%':
+                strcpy(resultado, "Token: '\%'");
                 break;
 
-            case PAREN_IZQ:
-                strcpy(resultado, "Token: Paréntesis Izquierdo");
+            case ',':
+                strcpy(resultado, "Token: ','");
                 break;
 
-            case PAREN_DER:
-                strcpy(resultado, "Token: Paréntesis Derecho");
+            case '(':
+                strcpy(resultado, "Token: '('");
                 break;
 
-            case PUNTO_COMA:
-                strcpy(resultado, "Token: Punto y Coma");
+            case ')':
+                strcpy(resultado, "Token: ')'");
+                break;
+
+            case ';':
+                strcpy(resultado, "Token: ';'");
                 break; 
             
             /* Palabra Reservada */
 
             case ENTERO:
-                strcpy(resultado, "Token: Entero");
+                strcpy(resultado, "Token: entero");
                 break;
 
             case LEER:
-                strcpy(resultado, "Token: Leer");
+                strcpy(resultado, "Token: leer");
                 break;
 
             case ESCRIBIR:
-                strcpy(resultado, "Token: Escribir");
+                strcpy(resultado, "Token: escribir");
                 break;
 
             case PROGRAMA:
-                strcpy(resultado, "Token: Programa");
+                strcpy(resultado, "Token: programa");
                 break;
 
             case FIN_PROGRAMA:
-                strcpy(resultado, "Token: Fin Programa");
+                strcpy(resultado, "Token: fin-programa");
                 break;
 
             // El scanner falló
