@@ -14,7 +14,7 @@ identificador       {letra}({letra}|{digito_decimal})*
 constante_entera    {digito_decimal}+
 cualquier_caracter  . 
 
- /* otros representa caracteres no alfanuméricos, excluyendo espacios y operadores especificados */
+/* otros representa caracteres no alfanuméricos, excluyendo espacios y operadores especificados */
 otros               [[:^alnum:]]{-}[[:space:]]{-}[-+*/();,>%]
 
 %%
