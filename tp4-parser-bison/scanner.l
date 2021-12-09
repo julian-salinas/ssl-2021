@@ -1,11 +1,15 @@
-%top{
-#include "tokens.h"
-}
+%{
+    #include "parser.h"
+    #include "string.h"
+    #include <stdio.h>
+    char msg[120];
+%}
 
 %option outfile="scanner.c"
 %option header-file="scanner.h"
 %option noinput
 %option nounput
+%option yylineno
 
 digito_decimal      [0-9]
 letra               [a-zA-Z] 
@@ -38,8 +42,6 @@ fin-programa                         return FIN_PROGRAMA;
 {espacio}+                           ;
 "//"{cualquier_caracter}*            ;
 
- /* Errores léxicos*/
- /* NOTA: Agregar contador de errores léxicos en cada sentencia*/
-{identificador}{otros}({letra}|{digito_decimal}|{otros})*   printf("Error léxico: identificador inválido: %s\n", yytext);
-{constante_entera}({letra}|{digito_decimal})*               printf("Error léxico: constante inválida: %s\n", yytext);
-{otros}+                                                    printf("Cadena inválida: %s\n", yytext);
+{identificador}{otros}({letra}|{digito_decimal}|{otros})*   {yylexerrs++; strcat(strcpy(msg, "Error léxico: identificador inválido: "), yytext); yyerror(msg);}
+{constante_entera}({letra}|{digito_decimal})*               {yylexerrs++; strcat(strcpy(msg, "Error léxico: Constante Inválida: "), yytext); yyerror(msg);}
+{otros}+                                                    {yylexerrs++; strcat(strcpy(msg, "Cadena inválida: "), yytext); yyerror(msg);}

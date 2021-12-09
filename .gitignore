@@ -1,3 +1,5 @@
 scanner.c
 scanner.h
 a.out
+parser.h
+parser.c

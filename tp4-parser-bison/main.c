@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include "parser.h"
-#include "scanner.h"
+
+extern int yynerrs;
+int yylexerrs = 0;
 
 int main(void)
 {	
@@ -12,7 +14,7 @@ int main(void)
 		case 2: printf("\nNo hay memoria suficiente");
 			break;		
 		}
-	printf("\nErrores sintácticos:  %d - Errores lexicos:  %d\n", yynerrs, errlex);
+	printf("\nErrores sintácticos:  %d - Errores lexicos:  %d\n", yynerrs, yylexerrs);
 
 	return 0;		
 }

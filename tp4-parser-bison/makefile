@@ -1,6 +1,6 @@
 all: flex bison
 	gcc *.c -Wall -g -lfl && \
-	./a.out < enunciado/entrada.txt  > enunciado/salida.txt  && \
+	./a.out < enunciado/entradaerr.txt > enunciado/salida-prueba.txt  && \
 	make clean && \
 	echo '\n'Compilacion y ejecucion realizada con éxito
 
@@ -13,3 +13,5 @@ bison:
 clean:
 	rm scanner.c 
 	rm scanner.h
+	rm parser.c
+	rm parser.h
