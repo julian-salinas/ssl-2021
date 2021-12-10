@@ -4,17 +4,20 @@
 extern int yynerrs;
 int yylexerrs = 0;
 
-int main(void)
-{	
-	switch( yyparse() ) {
-		case 0: printf("\nCompilación terminada con éxito");
+int main(void){	
+	switch(yyparse()){
+		case 0: 
+			printf("\nCompilación terminada con éxito");
 			break;		
-		case 1: printf("\nErrores de compilación");
+		case 1: 
+			printf("\nErrores de compilación");
 			break;
-		case 2: printf("\nNo hay memoria suficiente");
+		case 2: 
+			printf("\nNo hay memoria suficiente");
 			break;		
 		}
-	printf("\nErrores sintácticos:  %d - Errores lexicos:  %d\n", yynerrs, yylexerrs);
+	
+	printf("\nErrores sintácticos: %d - Errores léxicos: %d\n", yynerrs, yylexerrs);
 
-	return 0;		
+	return 0;
 }

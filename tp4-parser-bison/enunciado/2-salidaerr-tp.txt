@@ -1,0 +1,15 @@
+programa prueba
+Línea #3: syntax error, unexpected ENTERO, expecting ';'
+leer
+Línea #5: Error léxico: Cadena inválida: &!@
+Línea #5: syntax error, unexpected ';', expecting IDENTIFICADOR
+entero var2
+entero total
+Línea #8: Error léxico: Constante Inválida: 32z
+Línea #8: syntax error, unexpected '*', expecting IDENTIFICADOR or CONSTANTE or '-' or '('
+Línea #9: Error léxico: identificador inválido: var2&2@1
+módulo
+escribir
+
+Errores de compilación
+Errores sintácticos: 3 - Errores léxicos: 3

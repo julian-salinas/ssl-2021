@@ -13,5 +13,6 @@ multiplicación
 asignación
 módulo
 escribir
+
 Compilación terminada con éxito
-Errors sintácticos: 0 - Errores léxicos: 0
+Errores sintácticos: 0 - Errores léxicos: 0

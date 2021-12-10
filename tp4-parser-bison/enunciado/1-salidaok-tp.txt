@@ -1,0 +1,18 @@
+programa prueba
+entero var1
+entero var2
+leer
+entero total
+inversión
+multiplicación
+suma
+asignación
+suma
+paréntesis
+multiplicación
+asignación
+módulo
+escribir
+
+Compilación terminada con éxito
+Errores sintácticos: 0 - Errores léxicos: 0

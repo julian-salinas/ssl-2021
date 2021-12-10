@@ -2,7 +2,7 @@
     #include "parser.h"
     #include "string.h"
     #include <stdio.h>
-    char msg[120];
+    char msg[80];
 %}
 
 %option outfile="scanner.c"
@@ -44,4 +44,4 @@ fin-programa                         return FIN_PROGRAMA;
 
 {identificador}{otros}({letra}|{digito_decimal}|{otros})*   {yylexerrs++; strcat(strcpy(msg, "Error léxico: identificador inválido: "), yytext); yyerror(msg);}
 {constante_entera}({letra}|{digito_decimal})*               {yylexerrs++; strcat(strcpy(msg, "Error léxico: Constante Inválida: "), yytext); yyerror(msg);}
-{otros}+                                                    {yylexerrs++; strcat(strcpy(msg, "Cadena inválida: "), yytext); yyerror(msg);}
+{otros}+                                                    {yylexerrs++; strcat(strcpy(msg, "Error léxico: Cadena inválida: "), yytext); yyerror(msg);}
