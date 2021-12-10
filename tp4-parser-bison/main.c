@@ -1,3 +1,8 @@
+/*
+Grupo 4
+Integrantes: Copa, Rocío Belén; Iglesias, Tobías; Salinas, Julián
+*/
+
 #include <stdio.h>
 #include "parser.h"
 
