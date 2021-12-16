@@ -11,7 +11,7 @@ make
 flex scanner.l
 ```
 
-2. Compilar el parser
+2. Compilar el parser (`parser.y`)
 ```bash
 bison -d parser.y
 ```
@@ -22,7 +22,7 @@ gcc -Wall -g *.c -lfl
 ```
 *NOTA: Por defecto, el nombre del ejecutable será a.out (incluído en .gitignore)*
 
-3. Ejecutar
+4. Ejecutar
 ```bash
 ./a.out < enunciado/entrada.txt  > enunciado/salida.txt 
 ```
