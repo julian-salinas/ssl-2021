@@ -1,0 +1,13 @@
+services:
+  tp5:
+    tty: true
+    build:
+      context: .
+      dockerfile: Dockerfile
+    
+    container_name: tp5
+
+    volumes:
+      - type: bind
+        source: ../.
+        target: /home/ssl
