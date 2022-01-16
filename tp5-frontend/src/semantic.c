@@ -15,7 +15,7 @@ Funciones que hay que hacer (las que ya están hechas, tienen una X):
 También, ver como hacer con los operadores unarios
 */
 
-void comenzar() {
+void inicializar() {
     generar_codigo_seudo("Load", "rtlib");
     return;
 }
