@@ -24,7 +24,7 @@
 
 %%
 
-programa_mini: PROGRAMA IDENTIFICADOR { printf("programa %s\n", yylval); } lista_sentencias FIN_PROGRAMA 
+programa_mini: { inicializar() }PROGRAMA IDENTIFICADOR { printf("programa %s\n", yylval); } lista_sentencias FIN_PROGRAMA 
                 { if (yynerrs || yylexerrs) YYABORT; else YYACCEPT; };
 
 lista_sentencias: sentencia lista_sentencias 
