@@ -1,4 +1,4 @@
-#include "tp5.h"
+#include <stdio.h>
 
 /*
 Funciones que hay que hacer (las que ya están hechas, tienen una X):
@@ -24,12 +24,4 @@ void cargar_programa(char* nombre_programa) {
 void finalizar_programa() {
     generar_codigo_seudo("Exit");
     return;
-}
-
-
-// Esto está puesto para probar que funcione
-int main(void) {
-    cargar_programa("hola");
-    finalizar_programa();
-    return 0;
 }

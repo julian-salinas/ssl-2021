@@ -1,6 +1,8 @@
 %code top {
     #include <stdio.h>
     #include "scanner.h"
+    #include "semantic.h"
+    #include "symbol.h"
 }
 
 %code provides {
@@ -24,7 +26,7 @@
 
 %%
 
-programa_mini: PROGRAMA IDENTIFICADOR { cargar_programa(yylval); } lista_sentencias FIN_PROGRAMA 
+programa_mini: PROGRAMA IDENTIFICADOR { cargar_programa($2); } lista_sentencias FIN_PROGRAMA 
                 { if (yynerrs || yylexerrs) YYABORT; else YYACCEPT; };
 
 lista_sentencias: sentencia lista_sentencias 
@@ -42,13 +44,13 @@ lista_expresiones:    lista_expresiones expresion
                     | expresion
                     ;
 
-expresion:    expresion '+' expresion { printf("suma\n"); }
-            | expresion '-' expresion { printf("resta\n"); }
-            | '-' expresion %prec NEG { printf("inversión\n"); }
-            | expresion '*' expresion { printf("multiplicación\n"); }
-            | expresion '/' expresion { printf("división\n"); }
-            | expresion '%' expresion { printf("módulo\n"); }
-            | '(' expresion ')' { printf("paréntesis\n"); }
+expresion:    expresion '+' expresion { $$ = generar_infijo($1, '+', $3); }
+            | expresion '-' expresion { $$ = generar_infijo($1, '-', $3); }
+            | '-' expresion %prec NEG { $$ = generar_unario($2); }
+            | expresion '*' expresion { $$ = generar_infijo($1, '*', $3); }
+            | expresion '/' expresion { $$ = generar_infijo($1, '/', $3); }
+            | expresion '%' expresion { $$ = generar_infijo($1, '%', $3); }
+            | '(' expresion ')' { $$ = $2; }
             | CONSTANTE
             | IDENTIFICADOR
             ;

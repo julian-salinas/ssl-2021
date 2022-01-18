@@ -1,8 +1,11 @@
-#include "tp5.h"
+#include "generadores.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
-/* IMPORTANTE: Cuando se usa esta función, se la llama por generar_codigo_seudo */
 void generar_codigo_seudo_base(char* operacion, char* primer_parametro, char* segundo_parametro, char* tercer_parametro){
-    /* Esta función va a escribir el archivo output del programa */
+    /* IMPORTANTE: Cuando se usa esta función, se la llama por generar_codigo_seudo
+        Esta función va a escribir el archivo output del programa */
     printf("%s %s %s %s\n", operacion, primer_parametro, segundo_parametro, tercer_parametro);
 
     return;

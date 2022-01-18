@@ -1,5 +1,5 @@
-#ifndef GENERADORESH
-#define GENERADORESH
+#ifndef GENERADORES_H_
+#define GENERADORES_H_
 
 typedef struct {
     char* operacion;
