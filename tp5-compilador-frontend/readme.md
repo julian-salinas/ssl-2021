@@ -3,10 +3,11 @@
 
 ├── analyzers  # Acá están los archivos de flex y bison  
 ├── docker  # Archivos de Docker, necesarios para compilar facilmente desde windows
-├── enunciado  # Inputs y Outputs del TP
+├── txts  # Archivos de texto del enunciado
 ├── includes  # Headers (.h)
+├── obj  # Archivos objeto (.o)
 ├── src  # Código (.c)
-└── makefile  # Archivo para compilar el TP (Aún no está hecho)
+└── makefile  # Archivo para compilar el TP
 ```
 
 ## Ayuda: Compilar y Ejecutar el TP desde Windows vía Docker
