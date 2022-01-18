@@ -1,7 +1,5 @@
 PROCESS_NAME = ../tp5-frontend
 IDIR = ./include
-# COMMONS_IDIR = ./so-commons-library/include
-# COMMONS_LDIR = ./so-commons-library/lib
 ODIR = ./obj
 SRCDIR = ./src
 LEXDIR = ./analyzers

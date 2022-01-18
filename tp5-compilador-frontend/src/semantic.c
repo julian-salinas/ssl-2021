@@ -20,7 +20,6 @@ void cargar_programa(char* nombre_programa) {
     return;
 }
 
-
 void finalizar_programa() {
     generar_codigo_seudo("Exit");
     return;

@@ -16,8 +16,11 @@
 
 ### 1. Instalar [**Docker Desktop**](https://docs.docker.com/desktop/windows/install/)
 
-### 2. En una terminal (puede ser la del `vscode`), dirigirse al directorio `tp5-frontend/`
-
+### 2. En una terminal (puede ser la del `vscode`), dirigirse al directorio `tp5-compilador-frontend/`
+```bash
+vos@tupce: ~/<ruta-al-repositorio>
+$ cd tp5-compilador-frontend
+```
 ### 3. Ingresar en el directorio `docker`
 ```bash
 $ cd docker
@@ -37,7 +40,7 @@ Attaching to tp5
 
 ### Abrir una nueva terminal (sin cerrar la que está ejecutando el contenedor) (Botón `+` en la derecha de la terminal de `vscode`) y ejecutar el siguiente comando
 ```
-docker exec -it tp5 /bin/sh
+$ docker exec -it tp5 /bin/sh
 ```
 
 # Listo!
