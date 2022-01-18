@@ -1,3 +1,14 @@
+## Disposición de Directorios
+```bash
+
+├── analyzers  # Acá están los archivos de flex y bison  
+├── docker  # Archivos de Docker, necesarios para compilar facilmente desde windows
+├── enunciado  # Inputs y Outputs del TP
+├── includes  # Headers (.h)
+├── src  # Código (.c)
+└── makefile  # Archivo para compilar el TP (Aún no está hecho)
+```
+
 ## Ayuda: Compilar y Ejecutar el TP desde Windows vía Docker
 
 #
