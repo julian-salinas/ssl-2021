@@ -14,11 +14,11 @@
 
 #
 
-### 1. Instalar [**Docker Desktop**](https://docs.docker.com/desktop/windows/install/)
+### 1. Instalar [**Docker Desktop**](https://docs.docker.com/desktop/windows/install/) :whale:
 
 ### 2. En una terminal (puede ser la del `vscode`), dirigirse al directorio `tp5-compilador-frontend/`
 ```bash
-vos@tupce: ~/<ruta-al-repositorio>
+vos@tupc: ~/<ruta-al-repositorio>
 $ cd tp5-compilador-frontend
 ```
 ### 3. Ingresar en el directorio `docker`
