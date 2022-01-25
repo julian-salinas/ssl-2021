@@ -9,6 +9,9 @@
 %code provides {
     void yyerror(const char *);
     extern int yylexerrs;
+
+    extern char buffer[120];
+
 }
 
 %defines "parser.h"

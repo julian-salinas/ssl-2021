@@ -151,7 +151,10 @@ int yyparse (void);
     void yyerror(const char *);
     extern int yylexerrs;
 
-#line 155 "parser.c"
+    extern char buffer[120];
+
+
+#line 158 "parser.c"
 
 #endif /* !YY_YY_PARSER_H_INCLUDED  */
 
@@ -516,9 +519,9 @@ static const yytype_int8 yytranslate[] =
   /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_int8 yyrline[] =
 {
-       0,    30,    30,    30,    33,    34,    37,    38,    39,    40,
-      41,    44,    45,    48,    49,    50,    51,    52,    53,    54,
-      55,    56,    59,    60
+       0,    33,    33,    33,    36,    37,    40,    41,    42,    43,
+      44,    47,    48,    51,    52,    53,    54,    55,    56,    57,
+      58,    59,    62,    63
 };
 #endif
 
@@ -1339,85 +1342,85 @@ yyreduce:
   switch (yyn)
     {
   case 2:
-#line 30 "analyzers/parser.y"
+#line 33 "analyzers/parser.y"
                                       { cargar_programa(yyvsp[0]); }
-#line 1345 "parser.c"
+#line 1348 "parser.c"
     break;
 
   case 3:
-#line 31 "analyzers/parser.y"
+#line 34 "analyzers/parser.y"
                 { if (yynerrs || yylexerrs) YYABORT; else YYACCEPT; }
-#line 1351 "parser.c"
+#line 1354 "parser.c"
     break;
 
   case 6:
-#line 37 "analyzers/parser.y"
+#line 40 "analyzers/parser.y"
                                                      { printf("asignación\n"); }
-#line 1357 "parser.c"
+#line 1360 "parser.c"
     break;
 
   case 7:
-#line 38 "analyzers/parser.y"
+#line 41 "analyzers/parser.y"
                                         { printf("entero %s\n", yylval); }
-#line 1363 "parser.c"
+#line 1366 "parser.c"
     break;
 
   case 8:
-#line 39 "analyzers/parser.y"
+#line 42 "analyzers/parser.y"
                                                      { printf("leer\n"); }
-#line 1369 "parser.c"
+#line 1372 "parser.c"
     break;
 
   case 9:
-#line 40 "analyzers/parser.y"
+#line 43 "analyzers/parser.y"
                                                      { printf("escribir\n"); }
-#line 1375 "parser.c"
+#line 1378 "parser.c"
     break;
 
   case 13:
-#line 48 "analyzers/parser.y"
+#line 51 "analyzers/parser.y"
                                       { yyval = generar_infijo(yyvsp[-2], '+', yyvsp[0]); }
-#line 1381 "parser.c"
+#line 1384 "parser.c"
     break;
 
   case 14:
-#line 49 "analyzers/parser.y"
+#line 52 "analyzers/parser.y"
                                       { yyval = generar_infijo(yyvsp[-2], '-', yyvsp[0]); }
-#line 1387 "parser.c"
+#line 1390 "parser.c"
     break;
 
   case 15:
-#line 50 "analyzers/parser.y"
+#line 53 "analyzers/parser.y"
                                       { yyval = generar_unario(yyvsp[0]); }
-#line 1393 "parser.c"
+#line 1396 "parser.c"
     break;
 
   case 16:
-#line 51 "analyzers/parser.y"
+#line 54 "analyzers/parser.y"
                                       { yyval = generar_infijo(yyvsp[-2], '*', yyvsp[0]); }
-#line 1399 "parser.c"
+#line 1402 "parser.c"
     break;
 
   case 17:
-#line 52 "analyzers/parser.y"
+#line 55 "analyzers/parser.y"
                                       { yyval = generar_infijo(yyvsp[-2], '/', yyvsp[0]); }
-#line 1405 "parser.c"
+#line 1408 "parser.c"
     break;
 
   case 18:
-#line 53 "analyzers/parser.y"
+#line 56 "analyzers/parser.y"
                                       { yyval = generar_infijo(yyvsp[-2], '%', yyvsp[0]); }
-#line 1411 "parser.c"
+#line 1414 "parser.c"
     break;
 
   case 19:
-#line 54 "analyzers/parser.y"
+#line 57 "analyzers/parser.y"
                                 { yyval = yyvsp[-1]; }
-#line 1417 "parser.c"
+#line 1420 "parser.c"
     break;
 
 
-#line 1421 "parser.c"
+#line 1424 "parser.c"
 
       default: break;
     }
@@ -1649,7 +1652,7 @@ yyreturn:
 #endif
   return yyresult;
 }
-#line 63 "analyzers/parser.y"
+#line 66 "analyzers/parser.y"
 
 
 void yyerror(const char *msg) {
