@@ -63,14 +63,15 @@
 #define YYPULL 1
 
 /* "%code top" blocks.  */
-#line 1 "parser.y"
+#line 1 "analyzers/parser.y"
 
     #include <stdio.h>
     #include "scanner.h"
     #include "semantic.h"
     #include "symbol.h"
+    #include "generadores.h"
 
-#line 74 "parser.c"
+#line 75 "parser.c"
 
 
 
@@ -145,12 +146,12 @@ extern YYSTYPE yylval;
 
 int yyparse (void);
 /* "%code provides" blocks.  */
-#line 8 "parser.y"
+#line 9 "analyzers/parser.y"
 
     void yyerror(const char *);
     extern int yylexerrs;
 
-#line 154 "parser.c"
+#line 155 "parser.c"
 
 #endif /* !YY_YY_PARSER_H_INCLUDED  */
 
@@ -515,9 +516,9 @@ static const yytype_int8 yytranslate[] =
   /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_int8 yyrline[] =
 {
-       0,    29,    29,    29,    32,    33,    36,    37,    38,    39,
-      40,    43,    44,    47,    48,    49,    50,    51,    52,    53,
-      54,    55,    58,    59
+       0,    30,    30,    30,    33,    34,    37,    38,    39,    40,
+      41,    44,    45,    48,    49,    50,    51,    52,    53,    54,
+      55,    56,    59,    60
 };
 #endif
 
@@ -1338,85 +1339,85 @@ yyreduce:
   switch (yyn)
     {
   case 2:
-#line 29 "parser.y"
+#line 30 "analyzers/parser.y"
                                       { cargar_programa(yyvsp[0]); }
-#line 1344 "parser.c"
+#line 1345 "parser.c"
     break;
 
   case 3:
-#line 30 "parser.y"
+#line 31 "analyzers/parser.y"
                 { if (yynerrs || yylexerrs) YYABORT; else YYACCEPT; }
-#line 1350 "parser.c"
+#line 1351 "parser.c"
     break;
 
   case 6:
-#line 36 "parser.y"
+#line 37 "analyzers/parser.y"
                                                      { printf("asignación\n"); }
-#line 1356 "parser.c"
+#line 1357 "parser.c"
     break;
 
   case 7:
-#line 37 "parser.y"
+#line 38 "analyzers/parser.y"
                                         { printf("entero %s\n", yylval); }
-#line 1362 "parser.c"
+#line 1363 "parser.c"
     break;
 
   case 8:
-#line 38 "parser.y"
+#line 39 "analyzers/parser.y"
                                                      { printf("leer\n"); }
-#line 1368 "parser.c"
+#line 1369 "parser.c"
     break;
 
   case 9:
-#line 39 "parser.y"
+#line 40 "analyzers/parser.y"
                                                      { printf("escribir\n"); }
-#line 1374 "parser.c"
+#line 1375 "parser.c"
     break;
 
   case 13:
-#line 47 "parser.y"
+#line 48 "analyzers/parser.y"
                                       { yyval = generar_infijo(yyvsp[-2], '+', yyvsp[0]); }
-#line 1380 "parser.c"
+#line 1381 "parser.c"
     break;
 
   case 14:
-#line 48 "parser.y"
+#line 49 "analyzers/parser.y"
                                       { yyval = generar_infijo(yyvsp[-2], '-', yyvsp[0]); }
-#line 1386 "parser.c"
+#line 1387 "parser.c"
     break;
 
   case 15:
-#line 49 "parser.y"
+#line 50 "analyzers/parser.y"
                                       { yyval = generar_unario(yyvsp[0]); }
-#line 1392 "parser.c"
+#line 1393 "parser.c"
     break;
 
   case 16:
-#line 50 "parser.y"
+#line 51 "analyzers/parser.y"
                                       { yyval = generar_infijo(yyvsp[-2], '*', yyvsp[0]); }
-#line 1398 "parser.c"
+#line 1399 "parser.c"
     break;
 
   case 17:
-#line 51 "parser.y"
+#line 52 "analyzers/parser.y"
                                       { yyval = generar_infijo(yyvsp[-2], '/', yyvsp[0]); }
-#line 1404 "parser.c"
+#line 1405 "parser.c"
     break;
 
   case 18:
-#line 52 "parser.y"
+#line 53 "analyzers/parser.y"
                                       { yyval = generar_infijo(yyvsp[-2], '%', yyvsp[0]); }
-#line 1410 "parser.c"
+#line 1411 "parser.c"
     break;
 
   case 19:
-#line 53 "parser.y"
+#line 54 "analyzers/parser.y"
                                 { yyval = yyvsp[-1]; }
-#line 1416 "parser.c"
+#line 1417 "parser.c"
     break;
 
 
-#line 1420 "parser.c"
+#line 1421 "parser.c"
 
       default: break;
     }
@@ -1648,7 +1649,7 @@ yyreturn:
 #endif
   return yyresult;
 }
-#line 62 "parser.y"
+#line 63 "analyzers/parser.y"
 
 
 void yyerror(const char *msg) {

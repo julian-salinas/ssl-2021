@@ -16,13 +16,13 @@ void generar_codigo_seudo_default(argumentos_esperados_impresion argumentos_reci
     default en caso de no querer enviar N argumentos */
 
     // Crear array de variables que representan los argumentos
-    char *operacion, *primer_parametro, *segundo_parametro, *tercer_parametro;
-    char *argumentos[4] = {operacion, primer_parametro, segundo_parametro, tercer_parametro};
+    // char *operacion, *primer_parametro, *segundo_parametro, *tercer_parametro;
+    char *operacion = (char*) calloc(10, sizeof(char));
+    char *primer_parametro = (char*) calloc(10, sizeof(char));
+    char *segundo_parametro = (char*) calloc(10, sizeof(char));
+    char *tercer_parametro = (char*) calloc(10, sizeof(char));
     
-    // Pedir memoria para cada uno de los argumentos
-    for (int i = 0; i < 4; i++) {
-        argumentos[i] = (char*) calloc(10, sizeof(char));
-    }
+    char *argumentos[4] = {operacion, primer_parametro, segundo_parametro, tercer_parametro};
 
     // Establecer valores por defecto de ser necesario
     operacion = argumentos_recibidos.operacion ? argumentos_recibidos.operacion : ""; 

@@ -1,6 +1,8 @@
 #ifndef GENERADORES_H_
 #define GENERADORES_H_
 
+#define generar_codigo_seudo(...) generar_codigo_seudo_default((argumentos_esperados_impresion){__VA_ARGS__})
+
 typedef struct {
     char* operacion;
     char* primer_parametro;

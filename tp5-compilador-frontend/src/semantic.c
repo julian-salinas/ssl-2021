@@ -1,5 +1,5 @@
 #include <stdio.h>
-
+#include "generadores.h"
 /*
 Funciones que hay que hacer (las que ya están hechas, tienen una X):
     - comenzar (cargar_programa) X

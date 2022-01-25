@@ -6,6 +6,8 @@ extern int yynerrs;
 int yysemerrs = 0;
 
 int main(){
+    printf("hola");
+    /*
     switch(yyparse()) {
         case 0: // YYACCEPT
             printf("Compilación terminada con éxito\n");
@@ -21,5 +23,6 @@ int main(){
     }
 
     printf("Errores sintácticos: %d - Errores léxicos: %d - Errores semánticos: %d\n", yynerrs, yylexerrs, yysemerrs);
-    return EXIT_SUCCESS;
+    */
+    return 0;
 }

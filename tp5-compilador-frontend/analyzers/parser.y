@@ -3,6 +3,7 @@
     #include "scanner.h"
     #include "semantic.h"
     #include "symbol.h"
+    #include "generadores.h"
 }
 
 %code provides {
