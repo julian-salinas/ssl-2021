@@ -5,7 +5,6 @@
 ├── docker  # Archivos de Docker, necesarios para compilar facilmente desde windows
 ├── txts  # Archivos de texto del enunciado
 ├── includes  # Headers (.h)
-├── obj  # Archivos objeto (.o)
 ├── src  # Código (.c)
 └── makefile  # Archivo para compilar el TP
 ```
