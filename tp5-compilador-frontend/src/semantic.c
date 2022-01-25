@@ -24,3 +24,9 @@ void finalizar_programa() {
     generar_codigo_seudo("Exit");
     return;
 }
+
+void asignar(char *valorL, char *valorR) {
+    generar_pseudo("Reserve", valorR, valorL);
+    free(valorL);
+    free(valorR);
+}

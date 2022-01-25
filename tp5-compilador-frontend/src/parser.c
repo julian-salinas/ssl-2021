@@ -1355,7 +1355,7 @@ yyreduce:
 
   case 6:
 #line 40 "analyzers/parser.y"
-                                                     { printf("asignación\n"); }
+                                                     {asignar(yyvsp[-3], yyvsp[-1]); }
 #line 1360 "parser.c"
     break;
 
