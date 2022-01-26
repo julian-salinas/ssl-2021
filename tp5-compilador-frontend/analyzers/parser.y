@@ -38,7 +38,7 @@ lista_sentencias: sentencia lista_sentencias
                 ;
 
 sentencia:    IDENTIFICADOR ASIGNACION expresion ';' {asignar($1, $3); }
-            | ENTERO IDENTIFICADOR ';'  { printf("entero %s\n", yylval); }
+            | ENTERO IDENTIFICADOR ';'  { if (declarar_entero($3)) YYERROR; }
             | LEER '(' lista_identificadores ')' ';' { printf("leer\n"); }
             | ESCRIBIR '(' lista_expresiones ')' ';' { printf("escribir\n"); }
             | error ';'
