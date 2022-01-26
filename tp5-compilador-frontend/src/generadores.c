@@ -1,4 +1,5 @@
 #include "generadores.h"
+#include "parser.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -62,16 +63,16 @@ char *generar_infijo(char *operando_izquierdo, int operador, char *operando_dere
     char *temp = declarar_nuevo_temporal();
     switch(operador) {
         case '+':
-            generar_pseudo("ADD", operando_izquierdo, operando_derecho, buffer);
+            generar_codigo_seudo("ADD", operando_izquierdo, operando_derecho, buffer);
         break;
         case '-':
-            generar_pseudo("SUB", operando_izquierdo, operando_derecho, buffer);
+            generar_codigo_seudo("SUB", operando_izquierdo, operando_derecho, buffer);
         break;
         case '*':
-            generar_pseudo("MUL", operando_izquierdo, operando_derecho, buffer);
+            generar_codigo_seudo("MUL", operando_izquierdo, operando_derecho, buffer);
         break;
         case '/':
-            generar_pseudo("DIV", operando_izquierdo, operando_derecho, buffer);
+            generar_codigo_seudo("DIV", operando_izquierdo, operando_derecho, buffer);
         break;
     }
     return temp;

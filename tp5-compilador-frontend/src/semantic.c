@@ -4,7 +4,7 @@
 #include "semantic.h"
 #include "symbol.h"
 #include "valores.h"
-
+#include "parser.h"
 
 void cargar_programa(char* nombre_programa) {
     generar_codigo_seudo("Load rtlib", nombre_programa);
@@ -16,20 +16,20 @@ void finalizar_programa() {
     return;
 }
 
-void asignar(char *valorL, char *valorR) {
-    generar_pseudo("Reserve", valorR, valorL);
+void asignar(char* valorL, char* valorR) {
+    generar_codigo_seudo("Reserve", valorR, valorL);
     free(valorL);
     free(valorR);
 }
 
-int declarar_entero(char *nombre) {
+int declarar_entero(char* nombre) {
     if (identificador_ya_declarado(lista_identificadores, nombre)) {
         enviar_mensaje_error(nombre, "ya fue declarado");
         return 1;
     }
 
     agregar_identificador(&lista_identificadores, nombre);
-    generar_pseudo("Reserve", nombre, "4");
+    generar_codigo_seudo("Reserve", nombre, "4");
     return 0;
 }
 

@@ -4,6 +4,7 @@
     #include "semantic.h"
     #include "symbol.h"
     #include "generadores.h"
+    #include "valores.h"
 }
 
 %code provides {
@@ -50,7 +51,7 @@ lista_expresiones:    lista_expresiones expresion
 
 expresion:    expresion '+' expresion { $$ = generar_infijo($1, '+', $3); }
             | expresion '-' expresion { $$ = generar_infijo($1, '-', $3); }
-            | '-' expresion %prec NEG { $$ = generar_unario($2); }
+            | '-' expresion %prec NEG { generar_unario($2); }
             | expresion '*' expresion { $$ = generar_infijo($1, '*', $3); }
             | expresion '/' expresion { $$ = generar_infijo($1, '/', $3); }
             | expresion '%' expresion { $$ = generar_infijo($1, '%', $3); }
