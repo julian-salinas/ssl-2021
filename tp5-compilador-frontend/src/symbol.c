@@ -11,11 +11,11 @@ ListaIdentificadores* inicializar_lista_identificadores(ListaIdentificadores* li
     return lista_identificadores ; 
 }
 
-void agregar_identificador(ListaIdentificadores** lista, char *identificador) {
+void agregar_identificador(char *identificador) {
     struct ListaIdentificadores* nuevo = malloc(sizeof(struct ListaIdentificadores));
     nuevo->identificador = identificador;
-    nuevo->siguiente = *lista;
-    *lista = nuevo;
+    nuevo->siguiente = *(&lista_identificadores_declarados);
+    *(&lista_identificadores_declarados) = nuevo;
 }
 
 void imprimir_lista_identificadores(ListaIdentificadores* lista_identificadores) {
@@ -26,9 +26,9 @@ void imprimir_lista_identificadores(ListaIdentificadores* lista_identificadores)
     }
 }
 
-int identificador_ya_declarado(ListaIdentificadores* lista_identificadores, char* identificador) {
+int identificador_ya_declarado(char* identificador) {
     // devuelve 1 si el identificador ya está declarado, 0 si no lo está
-    ListaIdentificadores* actual = lista_identificadores;
+    ListaIdentificadores* actual = lista_identificadores_declarados;
 
     while (actual != NULL) {
         if (strcmp(actual->identificador, identificador) == 0) {

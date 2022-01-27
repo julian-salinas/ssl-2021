@@ -1,19 +1,22 @@
 %code top {
-    #include <stdio.h>
-    #include "scanner.h"
     #include "semantic.h"
     #include "symbol.h"
-    #include "generadores.h"
-    #include "valores.h"
+    #include "scanner.h"
 }
 
 %code provides {
-    void yyerror(const char *);
-    extern int yylexerrs;
 
+    #include <stdio.h>
+    #include <string.h>
+    #include <stdlib.h>
+
+    void yyerror(const char *);
     extern char buffer[120];
+    extern int yylexerrs;
+    extern int yysemerrs;
 
 }
+
 
 %define api.value.type {char *}
 %define parse.error verbose
@@ -29,22 +32,29 @@
 %%
 
 programa_mini: PROGRAMA IDENTIFICADOR { cargar_programa($2); } lista_sentencias FIN_PROGRAMA 
-                { if (yynerrs || yylexerrs) YYABORT; else YYACCEPT; };
+                { finalizar_programa(); if (yynerrs || yylexerrs) YYABORT; else YYACCEPT; };
+
+
+sentencia:    IDENTIFICADOR ASIGNACION expresion ';' {asignar($1, $3); }
+            | ENTERO IDENTIFICADOR ';'  { if (declarar_entero($3)) YYERROR; }
+            | LEER '(' lista_identificadores ')' ';' 
+            | ESCRIBIR '(' lista_expresiones ')' ';' 
+            | error ';'
+            ;
 
 lista_sentencias: sentencia lista_sentencias 
                 | %empty
                 ;
 
-sentencia:    IDENTIFICADOR ASIGNACION expresion ';' {asignar($1, $3); }
-            | ENTERO IDENTIFICADOR ';'  { if (declarar_entero($3)) YYERROR; }
-            | LEER '(' lista_identificadores ')' ';' { printf("leer\n"); }
-            | ESCRIBIR '(' lista_expresiones ')' ';' { printf("escribir\n"); }
-            | error ';'
-            ;
-
-lista_expresiones:    lista_expresiones expresion 
-                    | expresion
+lista_expresiones:   lista_expresiones ',' expresion { escribir($3); }
+                    | expresion { escribir($1); }
                     ;
+
+lista_identificadores:    lista_identificadores ',' identificador { leer($3); }
+                        | identificador { leer($1); }
+                        ;
+
+identificador:  IDENTIFICADOR { if (identificador_ya_declarado($1)) YYERROR; }
 
 expresion:    expresion '+' expresion { $$ = generar_infijo($1, '+', $3); }
             | expresion '-' expresion { $$ = generar_infijo($1, '-', $3); }
@@ -56,11 +66,6 @@ expresion:    expresion '+' expresion { $$ = generar_infijo($1, '+', $3); }
             | CONSTANTE
             | IDENTIFICADOR
             ;
-
-lista_identificadores:    lista_identificadores ',' IDENTIFICADOR 
-                        | IDENTIFICADOR
-                        ;
-
 %%
 
 void yyerror(const char *msg) {

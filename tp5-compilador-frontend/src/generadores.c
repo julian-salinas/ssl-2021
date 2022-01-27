@@ -1,5 +1,4 @@
 #include "generadores.h"
-#include "parser.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -59,21 +58,33 @@ char* agregar_prefijo_coma(char* valor) {
     return valor_con_prefijo;
 }
 
-char *generar_infijo(char *operando_izquierdo, int operador, char *operando_derecho) {
+char *generar_infijo(char* operando_izquierdo, int operador, char* operando_derecho) {
     char *temp = declarar_nuevo_temporal();
     switch(operador) {
         case '+':
             generar_codigo_seudo("ADD", operando_izquierdo, operando_derecho, buffer);
-        break;
+            break;
         case '-':
             generar_codigo_seudo("SUB", operando_izquierdo, operando_derecho, buffer);
-        break;
+            break;
+
         case '*':
             generar_codigo_seudo("MUL", operando_izquierdo, operando_derecho, buffer);
-        break;
+            break;
+
         case '/':
             generar_codigo_seudo("DIV", operando_izquierdo, operando_derecho, buffer);
-        break;
+            break;
+
+        case '%':
+            generar_codigo_seudo("MOD", operando_izquierdo, operando_derecho, buffer);
+            break;
     }
     return temp;
+}
+
+char *generar_unario(char* operando) {
+    char *temporal = declarar_nuevo_temporal();
+    generar_codigo_seudo("NEG", operando, buffer);
+    return temporal;
 }

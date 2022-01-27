@@ -1,10 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "generadores.h"
+#include <string.h>
 #include "semantic.h"
-#include "symbol.h"
-#include "valores.h"
-#include "parser.h"
 
 void cargar_programa(char* nombre_programa) {
     generar_codigo_seudo("Load rtlib", nombre_programa);
@@ -23,19 +20,37 @@ void asignar(char* valorL, char* valorR) {
 }
 
 int declarar_entero(char* nombre) {
-    if (identificador_ya_declarado(lista_identificadores, nombre)) {
+    if (identificador_ya_declarado(nombre)) {
         enviar_mensaje_error(nombre, "ya fue declarado");
         return 1;
     }
 
-    agregar_identificador(&lista_identificadores, nombre);
+    agregar_identificador(nombre);
     generar_codigo_seudo("Reserve", nombre, "4");
     return 0;
 }
 
+char *declarar_nuevo_temporal() {
+    sprintf(buffer, "Temp#%d", ++cantidad_temporales);
+    char *temporal = strdup(buffer);
+    declarar_entero(temporal);
+    return temporal;
+}
+
 void enviar_mensaje_error(char* nombre_identificador, char* situacion) {
-    errores_semanticos++;
+    yysemerrs++;
     sprintf(buffer, "Error semántico: identificador %s %s ", nombre_identificador, situacion);
     yyerror(buffer);
     return;
 }
+
+void escribir(char* valor) {
+    generar_codigo_seudo("Write", valor, "Integer");
+    free(valor);
+}
+
+void leer(char* valor) {
+    generar_codigo_seudo("Read", valor, "Integer");
+    free(valor);
+}
+

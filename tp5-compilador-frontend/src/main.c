@@ -1,9 +1,11 @@
 #include <stdio.h>
 #include "parser.h"
-#include "valores.h"
+
+int yylexerrs = 0;
+extern int yynerrs;
+int yysemerrs = 0;
 
 int main(){
-    
     switch(yyparse()) {
         case 0: // YYACCEPT
             printf("Compilación terminada con éxito\n");
@@ -18,7 +20,7 @@ int main(){
             break;
     }
 
-    printf("Errores sintácticos: %d - Errores léxicos: %d - Errores semánticos: %d\n", yynerrs, yylexerrs, errores_semanticos);
+    printf("Errores sintácticos: %d - Errores léxicos: %d - Errores semánticos: %d\n", yynerrs, yylexerrs, yysemerrs);
     
     return 0;
 }
