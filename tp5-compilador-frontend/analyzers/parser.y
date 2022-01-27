@@ -15,9 +15,6 @@
 
 }
 
-%defines "parser.h"
-%output "parser.c"
-
 %define api.value.type {char *}
 %define parse.error verbose
 

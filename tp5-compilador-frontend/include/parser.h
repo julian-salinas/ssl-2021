@@ -34,8 +34,8 @@
 /* Undocumented macros, especially those whose name start with YY_,
    are private implementation details.  Do not rely on them.  */
 
-#ifndef YY_YY_PARSER_H_INCLUDED
-# define YY_YY_PARSER_H_INCLUDED
+#ifndef YY_YY_INCLUDE_PARSER_H_INCLUDED
+# define YY_YY_INCLUDE_PARSER_H_INCLUDED
 /* Debug traces.  */
 #ifndef YYDEBUG
 # define YYDEBUG 0
@@ -81,6 +81,6 @@ int yyparse (void);
     extern char buffer[120];
 
 
-#line 85 "parser.h"
+#line 85 "include/parser.h"
 
-#endif /* !YY_YY_PARSER_H_INCLUDED  */
+#endif /* !YY_YY_INCLUDE_PARSER_H_INCLUDED  */

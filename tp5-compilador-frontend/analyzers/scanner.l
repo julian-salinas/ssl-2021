@@ -5,8 +5,6 @@
     char msg[80];
 %}
 
-%option outfile="scanner.c"
-%option header-file="scanner.h"
 %option noinput
 %option nounput
 %option yylineno
