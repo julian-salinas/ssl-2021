@@ -75,17 +75,14 @@ int yyparse (void);
 /* "%code provides" blocks.  */
 #line 7 "analyzers/parser.y"
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
-    #include <stdio.h>
-    #include <string.h>
-    #include <stdlib.h>
+void yyerror(const char *mensajeError);
+extern int yylexerrs;
+extern int yysemerrs;
 
-    void yyerror(const char *);
-    extern char buffer[120];
-    extern int yylexerrs;
-    extern int yysemerrs;
-
-
-#line 90 "include/parser.h"
+#line 87 "include/parser.h"
 
 #endif /* !YY_YY_INCLUDE_PARSER_H_INCLUDED  */

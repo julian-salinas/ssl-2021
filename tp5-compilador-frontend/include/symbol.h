@@ -1,11 +1,10 @@
-#ifndef SYMBOL_H_
-#define SYMBOL_H_
+#ifndef SYMBOL_H_INCLUDED
+#define SYMBOL_H_INCLUDED
 
 #include "parser.h"
 #include "semantic.h"
-#include "generadores.h"
 
-typedef struct ListaIdentificadores {
+typedef struct {
     int cantidad_elementos;
     char *identificador;
     struct ListaIdentificadores* siguiente;
@@ -13,9 +12,8 @@ typedef struct ListaIdentificadores {
 
 ListaIdentificadores* inicializar_lista_identificadores(ListaIdentificadores*);
 void agregar_identificador(char*);
-void imprimir_lista_identificadores(ListaIdentificadores*);
 int identificador_ya_declarado(char*);
 
-ListaIdentificadores *lista_identificadores_declarados = NULL;
+ListaIdentificadores* lista_identificadores_declarados;
 
-#endif
+#endif 

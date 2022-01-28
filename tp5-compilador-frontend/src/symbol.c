@@ -1,29 +1,10 @@
-// TODO: Acá van las rutinas de diccionario (si un elemento existe, lista de identificadores, agregar elemento a la lista de identificadores,etc.)
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 #include "symbol.h"
 
-ListaIdentificadores* inicializar_lista_identificadores(ListaIdentificadores* lista_identificadores){
-    lista_identificadores = (ListaIdentificadores*)malloc(sizeof(ListaIdentificadores));
-    lista_identificadores->cantidad_elementos = 0;
-    lista_identificadores->identificador = NULL;
-    return lista_identificadores ; 
-}
-
-void agregar_identificador(char *identificador) {
-    struct ListaIdentificadores* nuevo = malloc(sizeof(struct ListaIdentificadores));
+void agregar_identificador(char* identificador) {
+    ListaIdentificadores* nuevo = malloc(sizeof(ListaIdentificadores));
     nuevo->identificador = identificador;
     nuevo->siguiente = *(&lista_identificadores_declarados);
     *(&lista_identificadores_declarados) = nuevo;
-}
-
-void imprimir_lista_identificadores(ListaIdentificadores* lista_identificadores) {
-    ListaIdentificadores* actual = lista_identificadores;
-    while (actual != NULL) {
-        printf("%s\n", actual->identificador);
-        actual = actual->siguiente;
-    }
 }
 
 int identificador_ya_declarado(char* identificador) {
