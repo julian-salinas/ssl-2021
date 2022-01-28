@@ -59,7 +59,7 @@ lista_expresiones 		: lista_expresiones ',' expresion {escribir($3);}
 						;
 
 
-identificador            : IDENTIFICADOR { if(declarado_previamente($1)) YYERROR; } 
+identificador            : IDENTIFICADOR { if(identificador_declarado_previamente($1)) YYERROR; } 
                          ;
 
 

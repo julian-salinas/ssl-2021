@@ -38,12 +38,13 @@ int declarar_entero(char* nombre) {
 
     agregar_identificador(nombre);
     generar_codigo_seudo("Reserve", nombre, "4");
+    printf("SE DECLARO %s\n", nombre);
     return 0;
 }
 
-int declarado_previamente(char* nombreSimbolo) {
-    if(!identificador_ya_declarado(nombreSimbolo)) {
-        enviar_mensaje_error(nombreSimbolo, "no fue declarado");
+int identificador_declarado_previamente(char* nombre) {
+    if(!identificador_ya_declarado(nombre)) {
+        enviar_mensaje_error(nombre, "no fue declarado");
         return 1;
     }
     return 0;

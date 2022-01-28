@@ -1,0 +1,21 @@
+Load rtlib prueba
+Línea #3: syntax error, unexpected ENTERO, expecting ';'
+Línea #4: Error semántico: identificador var1 no fue declarado 
+Línea #5: Error léxico: Cadena inválida: &!@
+Reserve var2,4
+Reserve total,4
+Línea #8: Error semántico: identificador var1 no fue declarado 
+Línea #8: Error léxico: Constante Inválida: 32z
+Línea #9: Error léxico: identificador inválido: var2&2@1
+Reserve Temp@1,4
+MOD total,2,Temp@1
+Write Temp@1,Integer
+Exit 
+Errores de compilación
+Errores sintácticos: 1 - Errores léxicos: 3 - Errores semánticos: 2
+
+Lista de identificadores declarados:
+
+total
+var2
+
