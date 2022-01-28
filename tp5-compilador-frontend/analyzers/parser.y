@@ -30,7 +30,7 @@ programa_mini: PROGRAMA IDENTIFICADOR { cargar_programa($2); } lista_sentencias 
 
 
 sentencia                : identificador ASIGNACION expresion ';' { asignar($1, $3); }
-                         | ENTERO IDENTIFICADOR ';' { if( declarar_entero($2) ) YYERROR; } // yyerror cuando ya está declarado el idntificador
+                         | ENTERO IDENTIFICADOR ';' { if( declarar_entero($2) ) YYERROR; } 
                          | LEER '(' lista_identificadores ')' ';'
                          | ESCRIBIR '(' lista_expresiones ')' ';'
                          | error ';'
@@ -59,7 +59,7 @@ lista_expresiones 		: lista_expresiones ',' expresion {escribir($3);}
 						;
 
 
-identificador            : IDENTIFICADOR { if(declarado_previamente($1)) YYERROR; } // Checkea si ya está declarado
+identificador            : IDENTIFICADOR { if(declarado_previamente($1)) YYERROR; } 
                          ;
 
 
