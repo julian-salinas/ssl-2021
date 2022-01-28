@@ -1422,7 +1422,7 @@ yyreduce:
 
   case 22:
 #line 62 "analyzers/parser.y"
-                                         { if(declarado_previamente(yyvsp[0])) YYERROR; }
+                                         { if(identificador_declarado_previamente(yyvsp[0])) YYERROR; }
 #line 1427 "src/parser.c"
     break;
 
