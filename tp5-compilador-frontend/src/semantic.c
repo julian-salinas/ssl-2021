@@ -1,6 +1,6 @@
 #include "semantic.h"
 
-int contadorTemporales = 0;
+int cantidad_temporales = 0;
 char buffer[140];
 
 void cargar_programa(char* nombre_programa) {
@@ -141,7 +141,7 @@ char *generar_unario(char* operando) {
 }
 
 char *declarar_nuevo_temporal() {
-    sprintf(buffer, "Temp@%d", ++contadorTemporales);
+    sprintf(buffer, "Temp@%d", ++cantidad_temporales);
     char *temporal = strdup(buffer);
     declarar_entero(temporal);
     return temporal;
