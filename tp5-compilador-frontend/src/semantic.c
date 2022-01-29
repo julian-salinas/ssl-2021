@@ -3,53 +3,6 @@
 int cantidad_temporales = 0;
 char buffer[140];
 
-void cargar_programa(char* nombre_programa) {
-    generar_codigo_seudo("Load rtlib", nombre_programa);
-    return;
-}
-
-void finalizar_programa() {
-    generar_codigo_seudo("Exit");
-    return;
-}
-
-int declarar_entero(char* nombre) {
-    if (identificador_ya_declarado(nombre)) {
-        enviar_mensaje_error(nombre, "ya fue declarado");
-        return 1; // Redeclaración, 1 indica error (activa yyerror)
-    }
-
-    agregar_identificador(nombre);
-    generar_codigo_seudo("Reserve", nombre, "4"); // Siempre se reservan 4 bytes
-    return 0; // todo OK
-}
-
-int identificador_declarado_previamente(char* nombre) {
-    // esto hace lo mismo q identificador ya declarado, pero también manda un mensaje de error
-    if(!identificador_ya_declarado(nombre)) {
-        enviar_mensaje_error(nombre, "NO declarado");
-        return 1;
-    }
-    return 0;
-}
-
-void enviar_mensaje_error(char* nombre_identificador, char* situacion) {
-    // Situacion: está o no declarado
-    yysemerrs++; // Aumentar cantidad de errores semanticos
-    sprintf(buffer, "Error semántico: identificador %s %s ", nombre_identificador, situacion);
-    yyerror(buffer); // Mostrar el error con la línea
-    return;
-}
-
-void asignar(char* valor_izquierda, char* valor_derecha) {
-    // El valor izquierda es a quien se le va a asignar, el valor derecha es el valor que se le va a asignar
-    generar_codigo_seudo("Store", valor_derecha, valor_izquierda);
-
-    // Liberar memoria
-    free(valor_izquierda);
-    free(valor_derecha);
-}
-
 ////////////////////// Funciones para generar codigo de seudo ensamblador ///////////////////////
 
 void generar_codigo_seudo_base(char* operacion, char* primer_parametro, char* segundo_parametro, char* tercer_parametro){
@@ -103,6 +56,54 @@ char* agregar_prefijo_coma(char* valor) {
 }
 
 ////////////////////// Fin de funciones para generar codigo de seudo ensamblador (impresion) /////////////////////////////
+
+void cargar_programa(char* nombre_programa) {
+    generar_codigo_seudo("Load rtlib", nombre_programa);
+    return;
+}
+
+void finalizar_programa() {
+    generar_codigo_seudo("Exit");
+    return;
+}
+
+int declarar_entero(char* nombre) {
+    if (identificador_ya_declarado(nombre)) {
+        enviar_mensaje_error(nombre, "ya fue declarado");
+        return 1; // Redeclaración, 1 indica error (activa yyerror)
+    }
+
+    agregar_identificador(nombre);
+    generar_codigo_seudo("Reserve", nombre, "4"); // Siempre se reservan 4 bytes
+    return 0; // todo OK
+}
+
+int identificador_declarado_previamente(char* nombre) {
+    // esto hace lo mismo q identificador ya declarado, pero también manda un mensaje de error
+    if(!identificador_ya_declarado(nombre)) {
+        enviar_mensaje_error(nombre, "NO declarado");
+        return 1;
+    }
+    return 0;
+}
+
+void enviar_mensaje_error(char* nombre_identificador, char* situacion) {
+    // Situacion: está o no declarado
+    yysemerrs++; // Aumentar cantidad de errores semanticos
+    sprintf(buffer, "Error semántico: identificador %s %s ", nombre_identificador, situacion);
+    yyerror(buffer); // Mostrar el error con la línea
+    return;
+}
+
+void asignar(char* valor_izquierda, char* valor_derecha) {
+    // El valor izquierda es a quien se le va a asignar, el valor derecha es el valor que se le va a asignar
+    generar_codigo_seudo("Store", valor_derecha, valor_izquierda);
+
+    // Liberar memoria
+    free(valor_izquierda);
+    free(valor_derecha);
+}
+
 
 char* generar_infijo(char* operando_izquierdo, int operador, char* operando_derecho) {
     char* nuevo_temporal = declarar_nuevo_temporal(); // El nuevo temporal es el que queda en el buffer
