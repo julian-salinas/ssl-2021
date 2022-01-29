@@ -72,12 +72,12 @@ void generar_codigo_seudo_default(argumentos_esperados_impresion argumentos_reci
 
     // Crear array de variables que representan los argumentos
     // char *operacion, *primer_parametro, *segundo_parametro, *tercer_parametro;
-    char *operacion = (char*) calloc(10, sizeof(char));
-    char *primer_parametro = (char*) calloc(10, sizeof(char));
-    char *segundo_parametro = (char*) calloc(10, sizeof(char));
-    char *tercer_parametro = (char*) calloc(10, sizeof(char));
+    char* operacion = (char*) calloc(10, sizeof(char));
+    char* primer_parametro = (char*) calloc(10, sizeof(char));
+    char* segundo_parametro = (char*) calloc(10, sizeof(char));
+    char* tercer_parametro = (char*) calloc(10, sizeof(char));
     
-    char *argumentos[4] = {operacion, primer_parametro, segundo_parametro, tercer_parametro};
+    char* argumentos[4] = {operacion, primer_parametro, segundo_parametro, tercer_parametro};
 
     // Establecer valores por defecto de ser necesario
     operacion = argumentos_recibidos.operacion ? argumentos_recibidos.operacion : ""; 
@@ -109,7 +109,7 @@ char* agregar_prefijo_coma(char* valor) {
 }
 
 char* generar_infijo(char* operando_izquierdo, int operador, char* operando_derecho) {
-    char *nuevo_temporal = declarar_nuevo_temporal();
+    char* nuevo_temporal = declarar_nuevo_temporal();
     switch(operador) {
         case '+':
             generar_codigo_seudo("ADD", operando_izquierdo, operando_derecho, buffer);
@@ -135,16 +135,16 @@ char* generar_infijo(char* operando_izquierdo, int operador, char* operando_dere
     return nuevo_temporal;
 }
 
-char *generar_unario(char* operando) {
-    char *temporal = declarar_nuevo_temporal();
+char* generar_unario(char* operando) {
+    char* temporal = declarar_nuevo_temporal();
     generar_codigo_seudo("INV", operando, buffer);
     return temporal;
 }
 
-char *declarar_nuevo_temporal() {
+char* declarar_nuevo_temporal() {
     cantidad_temporales++;
     sprintf(buffer, "Temp@%d", cantidad_temporales);
-    char *temporal = strdup(buffer);
+    char* temporal = strdup(buffer);
     declarar_entero(temporal);
     return temporal;
 }

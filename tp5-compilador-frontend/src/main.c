@@ -23,14 +23,5 @@ int main(int argc, const char *argv[]){
 
     printf("Errores sintácticos: %d - Errores léxicos: %d - Errores semánticos: %d\n", yynerrs, yylexerrs, yysemerrs);
 
-
-    return 0;
-
-    // imprimir lista identificadores
-    // ListaIdentificadores* actual = lista_identificadores_declarados;
-    // while (actual != NULL) {
-    //     printf("%s\n", actual->identificador);
-    //     actual = actual->siguiente;
-    // }
     return 0;
 }

@@ -9,17 +9,17 @@ extern struct simbolo *tablaSimbolos;
 void cargar_programa(char*);
 void finalizar_programa();
 
-void asignar(char *valorL, char *valorR);
+void asignar(char*, char*);
 int declarar_entero(char*);
-int identificador_declarado_previamente(char *simbolo);
-void enviar_mensaje_error(char* simbolo, char* status);
+int identificador_declarado_previamente(char*);
+void enviar_mensaje_error(char*, char*);
 char *declarar_nuevo_temporal();
 
-void leer(char *valorL);
-void escribir(char *simbolo);
+void leer(char*);
+void escribir(char*);
 
-char *generar_unario(char *operando);
-char *generar_infijo(char *operandoIzq, int operador, char *operandoDer);
+char *generar_unario(char*);
+char *generar_infijo(char*, int, char*);
 
 // Esto es para imprimir codigo de seudo ensamblador
 typedef struct {
