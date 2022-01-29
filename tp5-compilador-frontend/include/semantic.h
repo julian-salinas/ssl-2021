@@ -11,7 +11,7 @@ void finalizar_programa();
 
 void asignar(char *valorL, char *valorR);
 int declarar_entero(char*);
-int declarado_previamente(char *simbolo);
+int identificador_declarado_previamente(char *simbolo);
 void enviar_mensaje_error(char* simbolo, char* status);
 char *declarar_nuevo_temporal();
 

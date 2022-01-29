@@ -2,6 +2,7 @@
 
 void agregar_identificador(char* identificador) {
     ListaIdentificadores* nuevo = malloc(sizeof(ListaIdentificadores));
+    nuevo->identificador = malloc(sizeof(char) * (strlen(identificador) + 1));
     nuevo->identificador = identificador;
     nuevo->siguiente = *(&lista_identificadores_declarados);
     *(&lista_identificadores_declarados) = nuevo;

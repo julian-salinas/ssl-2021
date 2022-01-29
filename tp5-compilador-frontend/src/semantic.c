@@ -38,13 +38,13 @@ int declarar_entero(char* nombre) {
 
     agregar_identificador(nombre);
     generar_codigo_seudo("Reserve", nombre, "4");
-    printf("SE DECLARO %s\n", nombre);
     return 0;
 }
 
 int identificador_declarado_previamente(char* nombre) {
+    // esto hace lo mismo q identificador ya declarado, pero también manda un mensaje de error
     if(!identificador_ya_declarado(nombre)) {
-        enviar_mensaje_error(nombre, "no fue declarado");
+        enviar_mensaje_error(nombre, "NO declarado");
         return 1;
     }
     return 0;
@@ -108,7 +108,7 @@ char* agregar_prefijo_coma(char* valor) {
     return valor_con_prefijo;
 }
 
-char *generar_infijo(char* operando_izquierdo, int operador, char* operando_derecho) {
+char* generar_infijo(char* operando_izquierdo, int operador, char* operando_derecho) {
     char *nuevo_temporal = declarar_nuevo_temporal();
     switch(operador) {
         case '+':
@@ -142,7 +142,8 @@ char *generar_unario(char* operando) {
 }
 
 char *declarar_nuevo_temporal() {
-    sprintf(buffer, "Temp@%d", ++cantidad_temporales);
+    cantidad_temporales++;
+    sprintf(buffer, "Temp@%d", cantidad_temporales);
     char *temporal = strdup(buffer);
     declarar_entero(temporal);
     return temporal;
