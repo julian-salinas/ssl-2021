@@ -6,7 +6,8 @@ extern int yynerrs;
 int yysemerrs = 0;
 
 int main(int argc, const char *argv[]){
-    lista_identificadores_declarados = NULL;
+    lista_identificadores_declarados = NULL; // Inicializo la lista donde se van a guardar los identificadores declarados
+    
     switch(yyparse()) {
         case 0: 
             printf("Compilación terminada con éxito\n");

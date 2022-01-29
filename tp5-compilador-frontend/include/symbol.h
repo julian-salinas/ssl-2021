@@ -14,6 +14,6 @@ ListaIdentificadores* inicializar_lista_identificadores(ListaIdentificadores*);
 void agregar_identificador(char*);
 int identificador_ya_declarado(char*);
 
-ListaIdentificadores* lista_identificadores_declarados;
+ListaIdentificadores* lista_identificadores_declarados; // Acá se van a ir guardando los identificadores declarados
 
 #endif 

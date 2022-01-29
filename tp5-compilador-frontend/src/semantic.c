@@ -13,32 +13,15 @@ void finalizar_programa() {
     return;
 }
 
-void asignar(char* valor_izquierda, char* valor_derecha) {
-    generar_codigo_seudo("Store", valor_derecha, valor_izquierda);
-    free(valor_izquierda);
-    free(valor_derecha);
-}
-
-void leer(char* valor) {
-    generar_codigo_seudo("Read", valor, "Integer");
-    free(valor);
-}
-
-void escribir(char* nombre) {
-    generar_codigo_seudo("Write", nombre, "Integer");
-    free(nombre);
-}
-
-
 int declarar_entero(char* nombre) {
     if (identificador_ya_declarado(nombre)) {
         enviar_mensaje_error(nombre, "ya fue declarado");
-        return 1;
+        return 1; // Redeclaración, 1 indica error (activa yyerror)
     }
 
     agregar_identificador(nombre);
-    generar_codigo_seudo("Reserve", nombre, "4");
-    return 0;
+    generar_codigo_seudo("Reserve", nombre, "4"); // Siempre se reservan 4 bytes
+    return 0; // todo OK
 }
 
 int identificador_declarado_previamente(char* nombre) {
@@ -51,12 +34,23 @@ int identificador_declarado_previamente(char* nombre) {
 }
 
 void enviar_mensaje_error(char* nombre_identificador, char* situacion) {
-    yysemerrs++;
+    // Situacion: está o no declarado
+    yysemerrs++; // Aumentar cantidad de errores semanticos
     sprintf(buffer, "Error semántico: identificador %s %s ", nombre_identificador, situacion);
-    yyerror(buffer);
+    yyerror(buffer); // Mostrar el error con la línea
     return;
 }
 
+void asignar(char* valor_izquierda, char* valor_derecha) {
+    // El valor izquierda es a quien se le va a asignar, el valor derecha es el valor que se le va a asignar
+    generar_codigo_seudo("Store", valor_derecha, valor_izquierda);
+
+    // Liberar memoria
+    free(valor_izquierda);
+    free(valor_derecha);
+}
+
+////////////////////// Funciones para generar codigo de seudo ensamblador ///////////////////////
 
 void generar_codigo_seudo_base(char* operacion, char* primer_parametro, char* segundo_parametro, char* tercer_parametro){
     /* IMPORTANTE: Cuando se usa esta función, se la llama por generar_codigo_seudo
@@ -77,8 +71,6 @@ void generar_codigo_seudo_default(argumentos_esperados_impresion argumentos_reci
     char* segundo_parametro = (char*) calloc(10, sizeof(char));
     char* tercer_parametro = (char*) calloc(10, sizeof(char));
     
-    char* argumentos[4] = {operacion, primer_parametro, segundo_parametro, tercer_parametro};
-
     // Establecer valores por defecto de ser necesario
     operacion = argumentos_recibidos.operacion ? argumentos_recibidos.operacion : ""; 
     primer_parametro = argumentos_recibidos.primer_parametro ? argumentos_recibidos.primer_parametro : "";
@@ -90,6 +82,8 @@ void generar_codigo_seudo_default(argumentos_esperados_impresion argumentos_reci
     // Llamar a función original 
     generar_codigo_seudo_base(operacion, primer_parametro, segundo_parametro, tercer_parametro);
 
+    // Creo ese vector para despues no tener que liberar uno por uno
+    char* argumentos[4] = {operacion, primer_parametro, segundo_parametro, tercer_parametro};
     // Liberar memoria
     for (int i = 0; i < 4; i++) {
         free(argumentos[i]);
@@ -97,7 +91,7 @@ void generar_codigo_seudo_default(argumentos_esperados_impresion argumentos_reci
 }
 
 char* agregar_prefijo_coma(char* valor) {
-    /* Agregar una Coma al principio de una cadena */
+    /* Agregar una Coma al principio de una cadena, no tiene mas ciencia */
     
     char* prefijo = ",";
 
@@ -108,8 +102,11 @@ char* agregar_prefijo_coma(char* valor) {
     return valor_con_prefijo;
 }
 
+////////////////////// Fin de funciones para generar codigo de seudo ensamblador (impresion) /////////////////////////////
+
 char* generar_infijo(char* operando_izquierdo, int operador, char* operando_derecho) {
-    char* nuevo_temporal = declarar_nuevo_temporal();
+    char* nuevo_temporal = declarar_nuevo_temporal(); // El nuevo temporal es el que queda en el buffer
+    
     switch(operador) {
         case '+':
             generar_codigo_seudo("ADD", operando_izquierdo, operando_derecho, buffer);
@@ -136,7 +133,7 @@ char* generar_infijo(char* operando_izquierdo, int operador, char* operando_dere
 }
 
 char* generar_unario(char* operando) {
-    char* temporal = declarar_nuevo_temporal();
+    char* temporal = declarar_nuevo_temporal(); // Se guarda en el buffer, que desp se imprime
     generar_codigo_seudo("INV", operando, buffer);
     return temporal;
 }
@@ -147,4 +144,14 @@ char* declarar_nuevo_temporal() {
     char* temporal = strdup(buffer);
     declarar_entero(temporal);
     return temporal;
+}
+
+void leer(char* valor) {
+    generar_codigo_seudo("Read", valor, "Integer");
+    free(valor); // Liberar memoria
+}
+
+void escribir(char* nombre) {
+    generar_codigo_seudo("Write", nombre, "Integer");
+    free(nombre); // Liberar memoria
 }
