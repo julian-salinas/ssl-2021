@@ -1,26 +1,32 @@
 # Compilar y Ejecutar el TP
 1. Compilar usando makefile
 ```
-make
+$ make
 ```
 
 2. Ejecutar
 ```
-./tp5 < txts/inputs/entradaok.txt > txts/outputs/salidaok.txt
-./tp5 < txts/inputs/entradaerr.txt > txts/outputs/salidaerr.txt
-./tp5 < txts/inputs/entradaerr2.txt > txts/outputs/salidaerr2.txt
+$ ./tp5 < txts/inputs/entradaok.txt > txts/outputs/salidaok.txt
+$ ./tp5 < txts/inputs/entradaerr.txt > txts/outputs/salidaerr.txt
+$ ./tp5 < txts/inputs/entradaerr2.txt > txts/outputs/salidaerr2.txt
 ```
 
 ## Disposición de Directorios
 ```bash
-
-├── analyzers  # Acá están los archivos de flex y bison  
-├── docker  # Archivos de Docker, necesarios para compilar facilmente desde windows
-├── txts  # Archivos de texto del enunciado
-├── includes  # Headers (.h)
-├── src  # Código (.c)
-└── makefile  # Archivo para compilar el TP
+.
+├── analyzers    
+├── docker  
+├── txts  
+├── include 
+├── src  
+└── makefile 
 ```
+* `analyzers`: Contiene archivos de flex y bison
+* `docker`: Contiene archivos de para compilar el TP desde windows
+* `txts`: Archivos de texto del enunciado
+* `include`: Headers (`.h`)
+* `src`: Código (`.c`)
+* makefile: Archivo para compilar el TP
 
 ## Ayuda: Compilar y Ejecutar el TP desde Windows vía Docker
 
