@@ -1,3 +1,16 @@
+# Compilar y Ejecutar el TP
+1. Compilar usando makefile
+```
+make
+```
+
+2. Ejecutar
+```
+./tp5 < txts/inputs/entradaok.txt > txts/outputs/salidaok.txt
+./tp5 < txts/inputs/entradaerr.txt > txts/outputs/salidaerr.txt
+./tp5 < txts/inputs/entradaerr2.txt > txts/outputs/salidaerr2.txt
+```
+
 ## Disposición de Directorios
 ```bash
 
@@ -25,7 +38,7 @@ $ cd tp5-compilador-frontend
 $ cd docker
 ```
 
-### 4. Iniciar el contenedor
+### 4. Iniciar el contenedor (Esto puede tardar un poco, pesa 300mb)
 ```
 $ docker-compose up
 ```
@@ -39,7 +52,7 @@ Attaching to tp5
 
 ### Abrir una nueva terminal (sin cerrar la que está ejecutando el contenedor) (Botón `+` en la derecha de la terminal de `vscode`) y ejecutar el siguiente comando
 ```
-$ docker exec -it tp5 /bin/sh
+$ docker exec -it tp5 bash
 ```
 
 # Listo!

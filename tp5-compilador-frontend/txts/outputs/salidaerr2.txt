@@ -1,17 +1,17 @@
-Load rtlib,prueba
+Load rtlib prueba
 Reserve var1,4
 Reserve var2,4
-línea #4: Error semántico: identificador var2 ya declarado
-línea #5: Error léxico: cadena desconocida: &!@
+Línea #4: Error semántico: identificador var2 ya fue declarado 
+Línea #5: Error léxico: Cadena inválida: &!@
 Read var1,Integer
 Read var2,Integer
 Reserve total,4
-línea #8: Error léxico: constante inválida: 32z
-línea #8: Error semántico: identificador var5 NO declarado
-línea #9: Error léxico: identificador inválido: var2&2@1
+Línea #8: Error léxico: Constante Inválida: 32z
+Línea #8: Error semántico: identificador var5 NO declarado 
+Línea #9: Error léxico: identificador inválido: var2&2@1
 Reserve Temp@1,4
 MOD total,2,Temp@1
 Write Temp@1,Integer
-Exit ,
+Exit 
 Errores de compilación
-Errors sintácticos: 0 - Errores léxicos: 3 - Errores Semánticos: 2
+Errores sintácticos: 0 - Errores léxicos: 3 - Errores semánticos: 2

@@ -7,7 +7,7 @@ CC=gcc
 CFLAGS=-Wall -I $(IDIR) -g
 
 all: flex bison
-	$(CC) $(SRCDIR)/*.c -I $(IDIR) $(CFLAGS) $(LIBS)
+	$(CC) $(SRCDIR)/*.c -I $(IDIR) $(CFLAGS) $(LIBS) -o tp5
 
 flex:
 	flex --outfile=$(SRCDIR)/scanner.c --header-file=$(IDIR)/scanner.h $(LEXDIR)/scanner.l

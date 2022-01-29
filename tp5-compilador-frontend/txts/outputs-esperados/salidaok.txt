@@ -1,11 +1,11 @@
-Load rtlib total
+Load rtlib,total
 Reserve var1,4
 Reserve var2,4
 Read var1,Integer
 Read var2,Integer
 Reserve total,4
 Reserve Temp@1,4
-INV var2,Temp@1
+INV var2,,Temp@1
 Reserve Temp@2,4
 MUL 32,Temp@1,Temp@2
 Reserve Temp@3,4
@@ -19,6 +19,6 @@ Store Temp@5,var2
 Reserve Temp@6,4
 MOD total,2,Temp@6
 Write Temp@6,Integer
-Exit 
+Exit ,
 Compilación terminada con éxito
-Errores sintácticos: 0 - Errores léxicos: 0 - Errores semánticos: 0
+Errors sintácticos: 0 - Errores léxicos: 0 - Errores Semánticos: 0

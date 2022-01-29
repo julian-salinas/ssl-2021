@@ -1,7 +1,9 @@
-FROM alpine:3.14
-
-RUN apk add build-base &&\
-    apk add flex &&\
-    apk add bison
+FROM ubuntu
 
 WORKDIR /home/ssl
+
+RUN apt-get -y update && \
+    apt -y install build-essential && \
+    apt -y install flex && \
+    apt -y install bison && \
+    rm -rf /var/lib/apt/lists/*
