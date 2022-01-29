@@ -26,7 +26,7 @@ $ ./tp5 < txts/inputs/entradaerr2.txt > txts/outputs/salidaerr2.txt
 * `txts`: Archivos de texto del enunciado
 * `include`: Headers (`.h`)
 * `src`: Código (`.c`)
-* makefile: Archivo para compilar el TP
+* `makefile`: Archivo para compilar el TP
 
 ## Ayuda: Compilar y Ejecutar el TP desde Windows vía Docker
 
