@@ -4,7 +4,7 @@
 #include "parser.h"
 #include "semantic.h"
 
-typedef struct {
+typedef struct ListaIdentificadores{
     int cantidad_elementos;
     char *identificador;
     struct ListaIdentificadores* siguiente;

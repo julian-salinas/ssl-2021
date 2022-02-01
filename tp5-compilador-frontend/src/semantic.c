@@ -9,8 +9,6 @@ void generar_codigo_seudo_base(char* operacion, char* primer_parametro, char* se
     /* IMPORTANTE: Cuando se usa esta función, se la llama por generar_codigo_seudo
         Esta función va a escribir el archivo output del programa */
     printf("%s %s%s%s\n", operacion, primer_parametro, segundo_parametro, tercer_parametro);
-
-    return;
 }
 
 void generar_codigo_seudo_default(argumentos_esperados_impresion argumentos_recibidos) {
@@ -24,6 +22,9 @@ void generar_codigo_seudo_default(argumentos_esperados_impresion argumentos_reci
     char* segundo_parametro = (char*) calloc(10, sizeof(char));
     char* tercer_parametro = (char*) calloc(10, sizeof(char));
     
+    // Creo ese vector para despues no tener que liberar uno por uno
+    char* argumentos[4] = {operacion, primer_parametro, segundo_parametro, tercer_parametro};
+    
     // Establecer valores por defecto de ser necesario
     operacion = argumentos_recibidos.operacion ? argumentos_recibidos.operacion : ""; 
     primer_parametro = argumentos_recibidos.primer_parametro ? argumentos_recibidos.primer_parametro : "";
@@ -35,8 +36,6 @@ void generar_codigo_seudo_default(argumentos_esperados_impresion argumentos_reci
     // Llamar a función original 
     generar_codigo_seudo_base(operacion, primer_parametro, segundo_parametro, tercer_parametro);
 
-    // Creo ese vector para despues no tener que liberar uno por uno
-    char* argumentos[4] = {operacion, primer_parametro, segundo_parametro, tercer_parametro};
     // Liberar memoria
     for (int i = 0; i < 4; i++) {
         free(argumentos[i]);
@@ -59,12 +58,11 @@ char* agregar_prefijo_coma(char* valor) {
 
 void cargar_programa(char* nombre_programa) {
     generar_codigo_seudo("Load rtlib", nombre_programa);
-    return;
+    free(nombre_programa);
 }
 
 void finalizar_programa() {
     generar_codigo_seudo("Exit");
-    return;
 }
 
 int declarar_entero(char* nombre) {
@@ -92,7 +90,10 @@ void enviar_mensaje_error(char* nombre_identificador, char* situacion) {
     yysemerrs++; // Aumentar cantidad de errores semanticos
     sprintf(buffer, "Error semántico: identificador %s %s ", nombre_identificador, situacion);
     yyerror(buffer); // Mostrar el error con la línea
-    return;
+
+    // Liberar memoria
+    free(nombre_identificador);
+    free(situacion);
 }
 
 void asignar(char* valor_izquierda, char* valor_derecha) {
@@ -130,6 +131,11 @@ char* generar_infijo(char* operando_izquierdo, int operador, char* operando_dere
             break;
         
     }
+
+    // liberar memoria
+    free(operando_izquierdo);
+    free(operando_derecho);
+    
     return nuevo_temporal;
 }
 
