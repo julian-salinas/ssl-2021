@@ -91,9 +91,6 @@ void enviar_mensaje_error(char* nombre_identificador, char* situacion) {
     sprintf(buffer, "Error semántico: identificador %s %s ", nombre_identificador, situacion);
     yyerror(buffer); // Mostrar el error con la línea
 
-    // Liberar memoria
-    free(nombre_identificador);
-    free(situacion);
 }
 
 void asignar(char* valor_izquierda, char* valor_derecha) {
@@ -135,7 +132,7 @@ char* generar_infijo(char* operando_izquierdo, int operador, char* operando_dere
     // liberar memoria
     free(operando_izquierdo);
     free(operando_derecho);
-    
+
     return nuevo_temporal;
 }
 
