@@ -20,7 +20,7 @@ extern int yysemerrs;
 
 %token ENTERO LEER ESCRIBIR PROGRAMA FIN_PROGRAMA IDENTIFICADOR CONSTANTE ASIGNACION
 %left '+' '-'
-%left '*' '/'
+%left '*' '/' '%'
 %precedence NEG
 %%
 
