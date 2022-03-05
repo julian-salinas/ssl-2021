@@ -3,7 +3,7 @@
 ## Breve descripción acerca de cada Trabajo Práctico:
 
 ### *tp1-scanner*
-Trabajo introductorio de la materia, el scanner debe ser capaz de analizar un archivo de texto y determinar qué es lo que está leyendo (*cadena o separador* )
+Trabajo introductorio de la materia, el scanner debe ser capaz de analizar un archivo de texto y determinar qué es lo que está leyendo (*cadena o separador*)
 #
 ### *tp2-bnf-lenguaje-mini*
 Documentación donde se define la BNF de la gramática, tanto léxica como sintáctica del lenguaje mini (lenguaje creado exclusivamente para realizar análisis léxico, sintáctico y semántico en los trabajos prácticos posteriores)
