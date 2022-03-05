@@ -1,7 +1,7 @@
 # Trabajos Prácticos - Sintaxis y Semántica de los Lenguajes - UTN FRBA - 2021 :books:
 
-## Breve descripción acerca de cada Trabajo Práctico
-#
+## Breve descripción acerca de cada Trabajo Práctico:
+
 ### *tp1-scanner*
 Trabajo introductorio de la materia, el scanner debe ser capaz de analizar un archivo de texto y determinar qué es lo que está leyendo (*cadena o separador* )
 #
