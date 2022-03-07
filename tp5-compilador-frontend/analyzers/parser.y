@@ -9,7 +9,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-void yyerror(const char *mensajeError);
+void yyerror(const char*);
 extern int yylexerrs;
 extern int yysemerrs;
 }
@@ -38,7 +38,7 @@ sentencia                : identificador ASIGNACION expresion ';' { asignar($1, 
 
 
 lista_sentencias         : %empty
-                         | sentencia lista_sentencias
+                         | lista_sentencias sentencia 
                          ;
 
 
